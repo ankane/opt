@@ -2,7 +2,7 @@
 
 :fire: Convex optimization for Ruby
 
-Supports [Cbc](https://github.com/ankane/cbc-ruby), [Clp](https://github.com/ankane/clp-ruby), [GLOP](https://github.com/ankane/or-tools-ruby), [GLPK](https://github.com/ankane/glpk-ruby), [HiGHS](https://github.com/ankane/highs-ruby), [OSQP](https://github.com/ankane/osqp-ruby), and [SCS](https://github.com/ankane/scs-ruby)
+Supports Cbc, Clp, GLOP, GLPK, HiGHS, OSQP, and SCS
 
 [![Build Status](https://github.com/ankane/opt/workflows/build/badge.svg?branch=master)](https://github.com/ankane/opt/actions)
 
@@ -18,13 +18,13 @@ And install a solver based on the problem type:
 
 Solver | LP | QP | MIP | License
 --- | --- | --- | --- | ---
-[Cbc](https://github.com/ankane/cbc-ruby#installation) | ✓ | | ✓ | EPL-2.0
-[Clp](https://github.com/ankane/clp-ruby#installation) | ✓ | | | EPL-2.0
-[GLOP](https://github.com/ankane/or-tools-ruby#installation) | ✓ | | | Apache-2.0
-[GLPK](https://github.com/ankane/glpk-ruby#installation) | ✓ | | ✓ | GPL-3.0-or-later
-[HiGHS](https://github.com/ankane/highs-ruby#installation) | ✓ | ✓ | ✓ | MIT
-[OSQP](https://github.com/ankane/osqp-ruby#installation) | ✓ | ✓ | | Apache-2.0
-[SCS](https://github.com/ankane/scs-ruby#installation) | ✓ | * | | MIT
+[Cbc](https://github.com/ankane/cbc-ruby) | ✓ | | ✓ | EPL-2.0
+[Clp](https://github.com/ankane/clp-ruby) | ✓ | | | EPL-2.0
+[GLOP](https://github.com/ankane/or-tools-ruby) | ✓ | | | Apache-2.0
+[GLPK](https://github.com/ankane/glpk-ruby) | ✓ | | ✓ | GPL-3.0-or-later
+[HiGHS](https://github.com/ankane/highs-ruby) | ✓ | ✓ | ✓ | MIT
+[OSQP](https://github.com/ankane/osqp-ruby) | ✓ | ✓ | | Apache-2.0
+[SCS](https://github.com/ankane/scs-ruby) | ✓ | * | | MIT
 
 \* supports, but not implemented yet
 
