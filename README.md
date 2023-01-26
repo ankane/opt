@@ -14,15 +14,19 @@ Add this line to your application’s Gemfile:
 gem "opt-rb"
 ```
 
-And install a solver:
+And install a solver based on the problem type:
 
-- [Cbc](https://github.com/ankane/cbc-ruby#installation)
-- [Clp](https://github.com/ankane/clp-ruby#installation)
-- [GLOP](https://github.com/ankane/or-tools-ruby#installation)
-- [GLPK](https://github.com/ankane/glpk-ruby#installation)
-- [HiGHS](https://github.com/ankane/highs-ruby#installation)
-- [OSQP](https://github.com/ankane/osqp-ruby#installation)
-- [SCS](https://github.com/ankane/scs-ruby#installation)
+Solver | LP | QP | MIP | License
+--- | --- | --- | --- | ---
+[Cbc](https://github.com/ankane/cbc-ruby#installation) | ✓ | | ✓ | EPL-2.0
+[Clp](https://github.com/ankane/clp-ruby#installation) | ✓ | | | EPL-2.0
+[GLOP](https://github.com/ankane/or-tools-ruby#installation) | ✓ | | | Apache-2.0
+[GLPK](https://github.com/ankane/glpk-ruby#installation) | ✓ | | ✓ | GPL-3.0-or-later
+[HiGHS](https://github.com/ankane/highs-ruby#installation) | ✓ | ✓ | ✓ | MIT
+[OSQP](https://github.com/ankane/osqp-ruby#installation) | ✓ | ✓ | | Apache-2.0
+[SCS](https://github.com/ankane/scs-ruby#installation) | ✓ | * | | MIT
+
+\* supports, but not implemented yet
 
 ## Getting Started
 
@@ -52,20 +56,6 @@ MIP
 x1 = Opt::Integer.new(0.., "x1")
 x1 = Opt::Binary.new("x1")
 ```
-
-## Problem Types
-
-Solver | LP | QP | MIP | License
---- | --- | --- | --- | ---
-Cbc | ✓ | | ✓ | EPL-2.0
-Clp | ✓ | | | EPL-2.0
-GLOP | ✓ | | | Apache-2.0
-GLPK | ✓ | | ✓ | GPL-3.0-or-later
-HiGHS | ✓ | ✓ | ✓ | MIT
-OSQP | ✓ | ✓ | | Apache-2.0
-SCS | ✓ | * | | MIT
-
-\* supports, but not implemented yet
 
 ## Reference
 
