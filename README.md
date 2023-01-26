@@ -14,7 +14,7 @@ Add this line to your application’s Gemfile:
 gem "opt-rb"
 ```
 
-And install a solver based on the problem type:
+And install one or more solvers based on your problem types:
 
 Solver | LP | QP | MIP | License
 --- | --- | --- | --- | ---
@@ -58,6 +58,12 @@ x1 = Opt::Binary.new("x1")
 ```
 
 ## Reference
+
+Specify the solver
+
+```ruby
+prob.solve(solver: :cbc)
+```
 
 Enable verbose logging
 
