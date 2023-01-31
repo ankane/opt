@@ -60,7 +60,7 @@ MIP
 
 ```ruby
 x1 = Opt::Integer.new(0.., "x1")
-x1 = Opt::Binary.new("x1")
+x2 = Opt::Binary.new("x2")
 ```
 
 ## Reference
