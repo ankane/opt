@@ -50,6 +50,12 @@ Get the value of a variable
 x1.value
 ```
 
+QP
+
+```ruby
+prob.minimize(x1 * x1)
+```
+
 MIP
 
 ```ruby
