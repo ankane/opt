@@ -27,7 +27,10 @@ module Opt
 
       vars = self.vars
       raise Error, "No variables" if vars.empty?
-      type = vars.any? { |v| v.is_a?(Integer) } ? :mip : :lp
+      has_semi_continuous_var = vars.any? { |v| v.is_a?(SemiContinuous) }
+      has_semi_integer_var = vars.any? { |v| v.is_a?(SemiInteger) }
+      has_integer_var = vars.any? { |v| v.is_a?(Integer) }
+      type = has_semi_continuous_var || has_semi_integer_var || has_integer_var ? :mip : :lp
       quadratic = @indexed_objective.any? { |k, _| k.is_a?(Array) }
 
       if quadratic
@@ -44,6 +47,9 @@ module Opt
       solver_cls = Opt.solvers.fetch(solver)
       raise Error, "Solver does not support #{type}" unless solver_cls.supports_type?(type)
 
+      raise Error, "Solver does not support semi-continuous variables" if has_semi_continuous_var && !solver_cls.supports_semi_continuous_variables?
+      raise Error, "Solver does not support semi-integer variables" if has_semi_integer_var && !solver_cls.supports_semi_integer_variables?
+
       col_lower = []
       col_upper = []
       obj = []
@@ -54,7 +60,8 @@ module Opt
         col_lower << (var.bounds.begin || -Float::INFINITY)
         upper = var.bounds.end
         if upper && var.bounds.exclude_end?
-          if var.is_a?(Integer)
+          case var
+          when Integer, SemiInteger
             upper -= 1
           else
             upper -= Float::EPSILON
@@ -117,7 +124,7 @@ module Opt
             case a
             when Binary
               b.round != 0
-            when Integer
+            when Integer, SemiInteger
               b.round
             else
               b
