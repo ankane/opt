@@ -63,6 +63,13 @@ x1 = Opt::Integer.new(0.., "x1")
 x2 = Opt::Binary.new("x2")
 ```
 
+Semi-continuous variables - *HiGHS only* [unreleased]
+
+```ruby
+x1 = Opt::SemiContinuous.new(2.., "x1")
+x2 = Opt::SemiInteger.new(2.., "x2")
+```
+
 ## Reference
 
 Specify the solver
