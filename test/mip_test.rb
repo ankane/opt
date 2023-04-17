@@ -112,7 +112,7 @@ class MipTest < Minitest::Test
     assert_equal (-2), x.value
   end
 
-  def test_semi_contious_mip
+  def test_semi_continuous_mip
     skip unless Opt.solvers[Opt.default_solvers[:mip]].supports_semi_continuous_variables?
 
     x1 = Opt::SemiContinuous.new(1.., "x1")
