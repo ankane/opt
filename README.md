@@ -63,7 +63,7 @@ x1 = Opt::Integer.new(0.., "x1")
 x2 = Opt::Binary.new("x2")
 ```
 
-Semi-continuous variables - *HiGHS only* [unreleased]
+MIP with semi-continuous variables - *HiGHS only at the moment* [unreleased]
 
 ```ruby
 x1 = Opt::SemiContinuous.new(2.., "x1")
