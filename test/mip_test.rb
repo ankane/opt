@@ -112,6 +112,42 @@ class MipTest < Minitest::Test
     assert_equal (-2), x.value
   end
 
+  def test_semi_contious_mip
+    skip unless Opt.solvers[Opt.default_solvers[:mip]].supports_semi_continuous_variables?
+
+    x1 = Opt::SemiContinuous.new(1.., "x1")
+    x2 = Opt::SemiContinuous.new(2.., "x2")
+
+    prob = Opt::Problem.new
+    prob.add(3 * x1 + 2 * x2 >= 60)
+    prob.minimize(8 * x1 + 6 * x2)
+    res = prob.solve
+    assert_equal :optimal, res[:status]
+    assert_in_delta 160, res[:objective]
+    assert_equal 20, x1.value
+    assert_kind_of Float, x1.value
+    assert_in_delta 0, x2.value
+    assert_kind_of Float, x2.value
+  end
+
+  def test_semi_integer_mip
+    skip unless Opt.solvers[Opt.default_solvers[:mip]].supports_semi_continuous_variables?
+
+    x1 = Opt::SemiInteger.new(1.., "x1")
+    x2 = Opt::SemiInteger.new(2.., "x2")
+
+    prob = Opt::Problem.new
+    prob.add(3 * x1 + 2 * x2 >= 75)
+    prob.minimize(8 * x1 + 6 * x2)
+    res = prob.solve
+    assert_equal :optimal, res[:status]
+    assert_in_delta 200, res[:objective]
+    assert_equal 25, x1.value
+    assert_kind_of Integer, x1.value
+    assert_in_delta 0, x2.value
+    assert_kind_of Integer, x2.value
+  end
+
   def test_quadratic
     x1 = Opt::Integer.new(0.., "x1")
 

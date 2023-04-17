@@ -19,4 +19,26 @@ class ProblemTest < Minitest::Test
     end
     assert_equal "Objective already set", error.message
   end
+
+  def test_unsupported_semi_continuous_variable
+    x1 = Opt::SemiContinuous.new(1.., "x1")
+    prob = Opt::Problem.new
+    prob.minimize(x1)
+
+    error = assert_raises(Opt::Error) do
+      prob.solve(solver: :cbc)
+    end
+    assert_equal "Solver does not support semi-continuous variables", error.message
+  end
+
+  def test_unsupported_semi_integer_variable
+    x1 = Opt::SemiInteger.new(1.., "x1")
+    prob = Opt::Problem.new
+    prob.minimize(x1)
+
+    error = assert_raises(Opt::Error) do
+      prob.solve(solver: :cbc)
+    end
+    assert_equal "Solver does not support semi-integer variables", error.message
+  end
 end

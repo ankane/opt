@@ -19,7 +19,7 @@ module Opt
               a_index: index,
               a_value: value,
               offset: offset,
-              integrality: vars.map { |v| v.is_a?(Integer) ? 1 : 0 }
+              integrality: vars.map { |var| integrality(var) }
             )
           when :qp
             q_start = []
@@ -80,12 +80,31 @@ module Opt
         }
       end
 
+      private
+
+      def integrality(var)
+        case var
+        when SemiInteger then 3
+        when SemiContinuous then 2
+        when Integer then 1
+        else 0
+        end
+      end
+
       def self.available?
         defined?(Highs)
       end
 
       def self.supported_types
         [:lp, :qp, :mip]
+      end
+
+      def self.supports_semi_continuous_variables?
+        true
+      end
+
+      def self.supports_semi_integer_variables?
+        true
       end
     end
   end
