@@ -156,6 +156,9 @@ module Opt
           else
             "#{var.name} #{end_op} #{bounds.end}"
           end
+        if var.is_a?(SemiContinuous) || var.is_a?(SemiInteger)
+          var_str = "#{var_str} or #{var.name} = 0"
+        end
         str << "  #{var_str}\n"
       end
       str
