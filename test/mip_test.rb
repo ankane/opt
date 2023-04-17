@@ -131,7 +131,7 @@ class MipTest < Minitest::Test
   end
 
   def test_semi_integer_mip
-    skip unless Opt.solvers[Opt.default_solvers[:mip]].supports_semi_continuous_variables?
+    skip unless Opt.solvers[Opt.default_solvers[:mip]].supports_semi_integer_variables?
 
     x1 = Opt::SemiInteger.new(1.., "x1")
     x2 = Opt::SemiInteger.new(2.., "x2")
