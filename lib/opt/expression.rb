@@ -57,6 +57,13 @@ module Opt
       end
     end
 
+    def value
+      values = parts.map(&:value)
+      return nil if values.any?(&:nil?)
+
+      values.sum
+    end
+
     def vars
       @vars ||= @parts.flat_map(&:vars)
     end

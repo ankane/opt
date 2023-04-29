@@ -11,6 +11,12 @@ module Opt
       "#{inspect_part(@left)} * #{inspect_part(@right)}"
     end
 
+    def value
+      return nil if left.value.nil? || right.value.nil?
+
+      left.value * right.value
+    end
+
     def vars
       @vars ||= (@left.vars + @right.vars).uniq
     end
