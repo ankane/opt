@@ -40,7 +40,7 @@ module Opt
 
       raise Error, "No solvers found" if Opt.available_solvers.empty?
 
-      solver ||= (Opt.default_solvers[type] || Opt.available_solvers.find { |s| s.supports_type?(type) })
+      solver ||= (Opt.default_solvers[type] || Opt.available_solvers.find { |s| Opt.solvers[s].supports_type?(type) })
       raise Error, "No solvers found for #{type}" unless solver
 
       # TODO better error message

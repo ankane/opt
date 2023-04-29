@@ -1,3 +1,7 @@
+## 0.1.2 (unreleased)
+
+- Fixed error with selecting solver
+
 ## 0.1.1 (2023-04-16)
 
 - Added support for semi-continuous and semi-integer variables
