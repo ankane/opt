@@ -34,8 +34,10 @@ module Opt
     solvers[key] = cls
   end
 
-  def self.available_solvers
-    solvers.select { |k, v| v.available? }.map(&:first)
+  def self.available_solvers(&filter)
+    available_solvers = solvers.select { |_, v| v.available? }
+    available_solvers = available_solvers.select(&filter) unless filter.nil?
+    available_solvers.map(&:first)
   end
 end
 
