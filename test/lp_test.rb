@@ -208,4 +208,36 @@ class LpTest < Minitest::Test
     end
     assert_equal "No variables", error.message
   end
+
+  def test_expression_value
+    x1 = Opt::Variable.new(0.., "x1")
+    x2 = Opt::Variable.new(0.., "x2")
+    expr1 = 2 * x1 + 2 * x2
+    expr2 = 3 * x1 + 4 * x2
+    expr3 = 2 * x1 + x2
+    obj = 8 * x1 + 10 * x2
+
+    prob = Opt::Problem.new
+    prob.add(expr1 >= 7)
+    prob.add(expr2 >= 12)
+    prob.add(expr3 >= 6)
+    prob.minimize(obj)
+
+    assert_nil x1.value
+    assert_nil x2.value
+    assert_nil expr1.value
+    assert_nil expr2.value
+    assert_nil expr3.value
+    assert_nil obj.value
+
+    res = prob.solve
+    assert_equal :optimal, res[:status]
+
+    assert_in_delta 2.4, x1.value
+    assert_in_delta 1.2, x2.value
+    assert_in_delta 7.2, expr1.value
+    assert_in_delta 12, expr2.value
+    assert_in_delta 6, expr3.value
+    assert_in_delta 31.2, obj.value
+  end
 end
