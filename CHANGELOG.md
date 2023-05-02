@@ -1,7 +1,7 @@
 ## 0.1.2 (unreleased)
 
-- Added `value` method to expressions
-- Fixed error with selecting solver
+- Added `value` method for expressions
+- Fixed error selecting solver
 
 ## 0.1.1 (2023-04-16)
 
