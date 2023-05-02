@@ -1,4 +1,4 @@
-## 0.1.2 (unreleased)
+## 0.1.2 (2023-05-01)
 
 - Added `value` method for expressions
 - Fixed error selecting solver
