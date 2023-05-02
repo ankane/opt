@@ -61,10 +61,10 @@ class ExpressionTest < Minitest::Test
 
   def test_nil_value
     expression = 2 * @x1 + 3 * @x2 * @x2
-    assert_equal nil, expression.value
+    assert_nil expression.value
 
     @x1.value = 1
-    assert_equal nil, expression.value
+    assert_nil expression.value
 
     @x2.value = 1
     assert_equal 5, expression.value
