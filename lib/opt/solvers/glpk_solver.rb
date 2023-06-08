@@ -40,6 +40,7 @@ module Opt
             row_upper: row_upper,
           )
         res = model.solve(message_level: verbose ? 3 : 0, time_limit: time_limit)
+        model.free if model.respond_to?(:free)
 
         status =
           case res[:status]

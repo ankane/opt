@@ -240,4 +240,18 @@ class LpTest < Minitest::Test
     assert_in_delta 6, expr3.value
     assert_in_delta 31.2, obj.value
   end
+
+  def test_threads
+    threads =
+      2.times.map do
+        Thread.new do
+          x1 = Opt::Variable.new(0.., "x1")
+          prob = Opt::Problem.new
+          prob.add(x1 >= 2)
+          prob.minimize(x1)
+          prob.solve
+        end
+      end
+    threads.map(&:join)
+  end
 end
