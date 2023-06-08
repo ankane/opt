@@ -1,3 +1,7 @@
+## 0.1.3 (unreleased)
+
+- Fixed error with GLPK and threads
+
 ## 0.1.2 (2023-05-01)
 
 - Added `value` method for expressions
