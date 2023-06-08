@@ -8,7 +8,7 @@ gem "minitest"
 # solvers
 gem "cbc"
 gem "clp"
-gem "glpk", github: "ankane/glpk-ruby"
+gem "glpk"
 gem "highs"
 gem "or-tools"
 gem "osqp"
