@@ -1,3 +1,7 @@
+## 0.1.4 (unreleased)
+
+- Fixed `stack level too deep` error
+
 ## 0.1.3 (2023-06-09)
 
 - Fixed error with GLPK and threads

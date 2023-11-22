@@ -7,11 +7,11 @@ module Opt
     end
 
     def +(other)
-      Expression.new([self, self.class.to_expression(other)])
+      Expression.new((parts || [self]) + [self.class.to_expression(other)])
     end
 
     def -(other)
-      Expression.new([self, -self.class.to_expression(other)])
+      Expression.new((parts || [self]) + [-self.class.to_expression(other)])
     end
 
     def -@
