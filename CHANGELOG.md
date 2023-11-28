@@ -1,4 +1,4 @@
-## 0.1.4 (unreleased)
+## 0.1.4 (2023-11-28)
 
 - Fixed `stack level too deep` error
 
