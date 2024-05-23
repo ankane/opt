@@ -4,7 +4,7 @@
 
 Supports Cbc, Clp, GLOP, GLPK, HiGHS, OSQP, and SCS
 
-[![Build Status](https://github.com/ankane/opt/workflows/build/badge.svg?branch=master)](https://github.com/ankane/opt/actions)
+[![Build Status](https://github.com/ankane/opt/actions/workflows/build.yml/badge.svg)](https://github.com/ankane/opt/actions)
 
 ## Installation
 
