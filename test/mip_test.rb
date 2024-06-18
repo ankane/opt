@@ -211,7 +211,7 @@ class MipTest < Minitest::Test
     # subgrids
     3.times do |i|
       3.times do |j|
-        add_different(prob, 3.times.flat_map { |k| 3.times.map { |l| vars[3 * i + k][3 * j + l] }})
+        add_different(prob, 3.times.flat_map { |k| 3.times.map { |l| vars[3 * i + k][3 * j + l] } })
       end
     end
 
