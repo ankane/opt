@@ -1,3 +1,7 @@
+## 0.2.0 (unreleased)
+
+- Dropped support for Ruby < 3.1
+
 ## 0.1.4 (2023-11-28)
 
 - Fixed `stack level too deep` error
