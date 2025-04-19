@@ -10,6 +10,6 @@ gem "cbc"
 gem "clp"
 gem "glpk"
 gem "highs"
-gem "or-tools"
+gem "or-tools", platform: :ruby
 gem "osqp"
 gem "scs"
