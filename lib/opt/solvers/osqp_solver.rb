@@ -37,7 +37,10 @@ module Opt
         end
 
         solver = OSQP::Solver.new
-        res = solver.solve(p, obj, a, row_lower, row_upper, verbose: verbose, time_limit: time_limit, polish: true)
+        solve_opts = {}
+        solve_opts[:time_limit] = time_limit if time_limit
+        solve_opts[OSQP::VERSION.to_f >= 0.4 ? :polishing : :polish] = true
+        res = solver.solve(p, obj, a, row_lower, row_upper, verbose: verbose, **solve_opts)
         objective = res[:obj_val]
         objective *= -1 if sense == :maximize
         objective += offset
