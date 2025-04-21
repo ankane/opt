@@ -17,6 +17,7 @@ end
 desc "Run all solver tests"
 task :test do
   SOLVERS.each do |solver|
+    next if RUBY_ENGINE == "truffleruby" && solver == "glop"
     Rake::Task["test:#{solver}"].invoke
   end
 end
