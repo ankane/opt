@@ -131,8 +131,6 @@ class QpTest < Minitest::Test
     expected_message =
       if solver == :highs
         "Bad status"
-      elsif solver == :osqp && OSQP::VERSION.to_f >= 0.4
-        "Linear system solver initialization error"
       else
         "Non-convex problem"
       end
