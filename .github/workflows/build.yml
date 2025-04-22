@@ -7,7 +7,7 @@ jobs:
       - uses: actions/checkout@v4
       - run: |
           sudo apt-get update
-          sudo apt-get install coinor-libcbc3 coinor-libclp1 libblas-dev libglpk40 liblapack-dev
+          sudo apt-get install coinor-libcbc3.1 coinor-libclp1 libblas-dev libglpk40 liblapack-dev
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: 3.4
