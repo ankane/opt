@@ -128,6 +128,9 @@ class QpTest < Minitest::Test
   end
 
   def test_unbounded
+    # incorrect error message
+    skip if solver == :osqp && OSQP::VERSION == "0.4.0"
+
     expected_message =
       if solver == :highs
         "Bad status"
