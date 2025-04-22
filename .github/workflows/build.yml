@@ -11,5 +11,5 @@ jobs:
           bundler-cache: true
       - run: |
           sudo apt-get update
-          sudo apt-get install coinor-libcbc3 coinor-libclp1 libglpk40
+          sudo apt-get install coinor-libcbc3 coinor-libclp1 libblas-dev libglpk40 liblapack-dev
       - run: bundle exec rake test
