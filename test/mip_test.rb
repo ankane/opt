@@ -3,6 +3,7 @@ require_relative "test_helper"
 class MipTest < Minitest::Test
   def setup
     skip unless supports_type?(:mip)
+    super
   end
 
   def test_mip

@@ -10,6 +10,6 @@ gem "cbc"
 gem "clp"
 gem "glpk"
 gem "highs"
-gem "or-tools", platform: :mri
+# gem "or-tools", platform: :mri
 gem "osqp"
 gem "scs"

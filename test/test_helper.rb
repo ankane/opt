@@ -3,6 +3,15 @@ Bundler.require(:default)
 require "minitest/autorun"
 
 class Minitest::Test
+  def setup
+    puts "#{self.class.name}##{name}"
+    GC.stress = true
+  end
+
+  def teardown
+    GC.stress = false
+  end
+
   def supports_type?(type)
     Opt.solvers[Opt.default_solvers[type]].supports_type?(type)
   end

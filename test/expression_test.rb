@@ -2,6 +2,7 @@ require_relative "test_helper"
 
 class ExpressionTest < Minitest::Test
   def setup
+    super
     @x1 = Opt::Variable.new(0.., "x1")
     @x2 = Opt::Variable.new(0.., "x2")
   end
