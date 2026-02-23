@@ -3,6 +3,7 @@ require_relative "test_helper"
 class LpTest < Minitest::Test
   def setup
     skip unless supports_type?(:lp)
+    super
   end
 
   def test_minimize

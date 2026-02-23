@@ -3,6 +3,7 @@ require_relative "test_helper"
 class QpTest < Minitest::Test
   def setup
     skip unless supports_type?(:qp)
+    super
   end
 
   def test_quadratic
