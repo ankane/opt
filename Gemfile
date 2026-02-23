@@ -10,6 +10,8 @@ gem "cbc"
 gem "clp"
 gem "glpk"
 gem "highs"
-gem "or-tools", platform: :mri
 gem "osqp"
 gem "scs"
+
+# only require when needed to prevent segfault with osqp
+gem "or-tools", platform: :mri, require: false

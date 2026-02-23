@@ -16,3 +16,7 @@ solver = (ENV["SOLVER"] || "clp").to_sym
 puts "Using #{solver}"
 
 Opt.default_solvers = {lp: solver, qp: solver, mip: solver}
+
+if solver == :glop
+  require "or-tools"
+end
