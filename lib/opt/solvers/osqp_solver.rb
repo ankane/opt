@@ -13,7 +13,7 @@ module Opt
 
         # add variable constraints
         vars.each_with_index do |v, i|
-          row = Array.new(vars.size)
+          row = Array.new(vars.size, 0.0)
           row[i] = 1
           a << row
           row_lower << col_lower[i]
