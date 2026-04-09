@@ -27,9 +27,9 @@ module Opt
 
       vars = self.vars
       raise Error, "No variables" if vars.empty?
-      has_semi_continuous_var = vars.any? { |v| v.is_a?(SemiContinuous) }
-      has_semi_integer_var = vars.any? { |v| v.is_a?(SemiInteger) }
-      has_integer_var = vars.any? { |v| v.is_a?(Integer) }
+      has_semi_continuous_var = vars.any?(SemiContinuous)
+      has_semi_integer_var = vars.any?(SemiInteger)
+      has_integer_var = vars.any?(Integer)
       type = has_semi_continuous_var || has_semi_integer_var || has_integer_var ? :mip : :lp
       quadratic = @indexed_objective.any? { |k, _| k.is_a?(Array) }
 
