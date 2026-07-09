@@ -26,14 +26,17 @@ module Opt
             q_index = []
             q_value = []
 
+            before_0_3 = Highs::VERSION.to_f < 0.3
             vars.each_with_index do |v2, j|
               q_start << q_index.size
               vars.each_with_index do |v1, i|
-                v = indexed_objective[[v1, v2]]
-                if v != 0
-                  q_index << i
-                  # multiply values by 2 since minimizes 1/2
-                  q_value << (v1.equal?(v2) ? v * 2 : v)
+                if i <= j || before_0_3
+                  v = indexed_objective[[v1, v2]]
+                  if v != 0
+                    q_index << i
+                    # multiply values by 2 since minimizes 1/2
+                    q_value << (v1.equal?(v2) ? v * 2 : v)
+                  end
                 end
               end
             end

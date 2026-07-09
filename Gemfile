@@ -9,7 +9,7 @@ gem "minitest"
 gem "cbc"
 gem "clp"
 gem "glpk"
-gem "highs", "< 0.3"
+gem "highs"
 gem "osqp"
 gem "scs"
 

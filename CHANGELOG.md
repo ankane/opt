@@ -1,6 +1,7 @@
 ## 0.3.1 (unreleased)
 
 - Added support for QP with SCS
+- Fixed error with QP and HiGHS Ruby 0.3
 
 ## 0.3.0 (2026-04-07)
 
