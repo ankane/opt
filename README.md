@@ -24,9 +24,7 @@ Solver | LP | QP | MIP | License
 [GLPK](https://github.com/ankane/glpk-ruby) | ✓ | | ✓ | GPL-3.0-or-later
 [HiGHS](https://github.com/ankane/highs-ruby) | ✓ | ✓ | ✓ | MIT
 [OSQP](https://github.com/ankane/osqp-ruby) | ✓ | ✓ | | Apache-2.0
-[SCS](https://github.com/ankane/scs-ruby) | ✓ | * | | MIT
-
-\* supports, but not implemented yet
+[SCS](https://github.com/ankane/scs-ruby) | ✓ | ✓ | | MIT
 
 ## Getting Started
 

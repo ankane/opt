@@ -1,3 +1,7 @@
+## 0.3.1 (unreleased)
+
+- Added support for QP with SCS
+
 ## 0.3.0 (2026-04-07)
 
 - Dropped support for Ruby < 3.3

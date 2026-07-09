@@ -1,7 +1,7 @@
 module Opt
   module Solvers
     class ScsSolver < AbstractSolver
-      def solve(sense:, col_lower:, col_upper:, obj:, row_lower:, row_upper:, constraints_by_var:, vars:, offset:, verbose:, time_limit:, **)
+      def solve(sense:, col_lower:, col_upper:, obj:, row_lower:, row_upper:, constraints_by_var:, vars:, offset:, verbose:, time_limit:, type:, indexed_objective:, **)
         obj = obj.map { |v| -v } if sense == :maximize
 
         a = []
@@ -41,6 +41,26 @@ module Opt
 
         data = {a: a, b: b, c: obj}
         cone = {z: z, l: l}
+
+        if type == :qp
+          p = SCS::Matrix.new(a.first.size, a.first.size)
+          vars.map.with_index do |v1, i|
+            vars.map.with_index do |v2, j|
+              if i > j
+                0
+              else
+                v = indexed_objective[[v1, v2]]
+                v = (v1.equal?(v2) ? v * 2 : v)
+                v *= -1 if sense == :maximize
+                # p must be positive semidefinite
+                raise Error, "Non-convex problem" if v < 0
+                p[i, j] = v
+              end
+            end
+          end
+          data[:p] = p
+        end
+
         solver = SCS::Solver.new
         res = solver.solve(data, cone, verbose: verbose, time_limit_secs: time_limit)
         objective = res[:pobj]
@@ -69,7 +89,7 @@ module Opt
       end
 
       def self.supported_types
-        [:lp]
+        [:lp, :qp]
       end
     end
   end

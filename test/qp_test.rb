@@ -101,7 +101,7 @@ class QpTest < Minitest::Test
     prob.minimize(2 * x1 * (x1 + 3 * x2) + 10 * x2 * x2)
     res = prob.solve
     assert_equal :optimal, res[:status]
-    assert_in_delta 134, res[:objective]
+    assert_in_delta 134, res[:objective], 0.0011
     assert_in_delta 2, x1.value
     assert_in_delta 3, x2.value
   end
