@@ -44,11 +44,9 @@ module Opt
 
         if type == :qp
           p = SCS::Matrix.new(a.first.size, a.first.size)
-          vars.map.with_index do |v1, i|
-            vars.map.with_index do |v2, j|
-              if i > j
-                0
-              else
+          vars.each_with_index do |v1, i|
+            vars.each_with_index do |v2, j|
+              if i <= j
                 v = indexed_objective[[v1, v2]]
                 v = (v1.equal?(v2) ? v * 2 : v)
                 v *= -1 if sense == :maximize
