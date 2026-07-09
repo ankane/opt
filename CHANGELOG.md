@@ -1,4 +1,4 @@
-## 0.3.1 (unreleased)
+## 0.3.1 (2026-07-09)
 
 - Added support for QP with SCS
 - Fixed error with QP and HiGHS Ruby 0.3
